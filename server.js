@@ -17,15 +17,17 @@ app.get('/', (req, res) => {
 })
 
 app.post('/uploadfile', fileUpload.single('file'), (req, res, next) => {
-    console.log('File has been uploaded!');
-    if (!res.fileName) {
-        res.json({Error_Msg: 'Could not upload file, please try again.'})
+    if (!req.file.filename) {
+        res.json({
+            Error_Msg: '------- Could not upload file, please try again.'
+        })
     } else {
+        console.log('------- File has been uploaded!');
         var fileName = "./uploaded_files/" + req.file.filename;
         console.log(fileName)
-        // delete file from database
-        console.log('FILENAME: ', fileName)
+        // Here we delete file immediately after upload.
         fs.unlinkSync(fileName);
+        console.log('-------', 'File has been deleted.')
         return res.json({
             name: req.file.originalname,
             size: req.file.size,

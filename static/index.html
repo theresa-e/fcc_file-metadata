@@ -4,21 +4,44 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>FreeCodeCamp File Metadata Microservice</title>
+    <title>File Metadata Microservice - FCC</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-    <script src="main.js"></script>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </head>
 
 <body>
-    <h1>File Metadata Microservice</h1>
-
-    <form action="/uploadfile" method="POST" enctype="multipart/form-data">
-        <label for="file">
-        </label>
-        <p><input type="file" name="file"></p>
-        <input type="submit" value="upload">
-    </form>
+    <section class="container ">
+        <h3 class="center">File Metadata Microservice - API Project</h3>
+        <p>This project is part of FreeCodeCamp. Below are the user stories:
+            <ol>
+                <li>I can submit a form object that includes a file upload.</li>
+                <li>The from file input field has the "name" attribute set to "upfile". We rely on this in testing.
+                </li>
+                <li>When I submit something, I will receive the file name, and size in bytes within the JSON response.
+                </li>
+            </ol>
+            Feel free to try it out and see what metadata comes back!
+        </p>
+        <div class="row ">
+            <form action="/uploadfile" class="col s6" method="POST" enctype="multipart/form-data">
+                <div class="file-field input-field">
+                    <div class="btn btn-small light-green lighten">
+                        <span>Choose a file</span>
+                        <input type="file" name="file">
+                    </div>
+                    <div class="file-path-wrapper">
+                        <input class="file-path validate" type="text">
+                    </div>
+                </div>
+                <input type="submit" class="btn light-green darken-2" value="Upload">
+            </form>
+        </div>
+    </section>
 </body>
 
 </html>
